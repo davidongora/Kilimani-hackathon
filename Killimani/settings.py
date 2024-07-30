@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "apps.data",
     "apps.reports",
     "apps.projects",
+    "apps.forum",
 ]
 
 MIDDLEWARE = [
