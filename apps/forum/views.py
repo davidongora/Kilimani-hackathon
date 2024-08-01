@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 from rest_framework import generics
-from apps.forum.models import Post, PostComment
-from apps.forum.serializers import PostSerializer, PostCommentSerializer
+from apps.forum.models import Post, PostComment, Poll, PollChoice
+from apps.forum.serializers import PostSerializer, PostCommentSerializer, PollSerializer, PollChoiceSerializer
 # Create your views here.
 class PostAPIView(generics.ListCreateAPIView):
     queryset = Post.objects.all().order_by("-created")
@@ -35,3 +35,20 @@ class PostCommentDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostCommentSerializer
 
     lookup_field = "pk"
+
+
+class PollAPIView(generics.ListCreateAPIView):
+    queryset = Poll.objects.all()
+    serializer_class = PollSerializer
+
+
+class PollDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Poll.objects.all()
+    serializer_class = PollSerializer
+
+    lookup_field = "pk"
+
+
+class PollChoiceAPIView(generics.ListCreateAPIView):
+    queryset = PollChoice.objects.all()
+    serializer_class = PollChoiceSerializer
