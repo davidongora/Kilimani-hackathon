@@ -239,25 +239,25 @@ export default function Landing() {
                   <span style={{color: "red"}}>15</span>
                   <span className="text-red-600">+</span>
                 </h1>
-                <h1>Years of experience</h1>
+                <h1>Community Projects</h1>
               </div>
             </div>
   <div className="w-full md:w-1/2 px-4 mb-6">
     <div className="text-center">
       <h1 className="text-5xl font-bold">
-        <span style={{color: "red"}}>15</span>
+        <span style={{color: "red"}}>560</span>
         <span className="text-red-600">+</span>
       </h1>
-      <h1>Years of experience</h1>
+      <h1>forums held</h1>
     </div>
   </div>
   <div className="w-full md:w-1/2 px-4 mb-6">
     <div className="text-center">
       <h1 className="text-5xl font-bold">
-        <span style={{color: "red"}}>15</span>
+        <span style={{color: "red"}}>10,015</span>
         <span className="text-red-600">+</span>
       </h1>
-      <h1>Years of experience</h1>
+      <h1>Members</h1>
     </div>
   </div>
   <div className="w-full md:w-1/2 px-4 mb-6">
