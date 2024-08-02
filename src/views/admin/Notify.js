@@ -17,7 +17,23 @@ const notifications = [
     title: 'Tree Planting Event',
     message: 'Join us for a tree planting event at Central Park this Saturday at 9 AM.',
     icon: <LightBulbIcon className="h-6 w-6 text-black" />,
-    bgColor: 'bg-green-800'
+    bgColor: 'bg-green-600'
+  },
+  {
+    id: 3,
+    type: 'forum',
+    title: 'Community Forum',
+    message: 'Attend the community forum on urban development at the Kilimani Community Hall on Friday.',
+    icon: <ChatBubbleLeftIcon className="h-6 w-6 text-white" />,
+    bgColor: 'bg-red-600'
+  },
+  {
+    id: 3,
+    type: 'forum',
+    title: 'Community Forum',
+    message: 'Attend the community forum on urban development at the Kilimani Community Hall on Friday.',
+    icon: <ChatBubbleLeftIcon className="h-6 w-6 text-white" />,
+    bgColor: 'bg-green'
   },
   {
     id: 3,
@@ -33,7 +49,7 @@ const notifications = [
     title: 'Community Forum',
     message: 'Attend the community forum on urban development at the Kilimani Community Hall on Friday.',
     icon: <ChatBubbleLeftIcon className="h-6 w-6 text-white" />,
-    bgColor: 'bg-blue-600'
+    bgColor: 'bg-blue-700'
   },
   {
     id: 3,
@@ -41,23 +57,7 @@ const notifications = [
     title: 'Community Forum',
     message: 'Attend the community forum on urban development at the Kilimani Community Hall on Friday.',
     icon: <ChatBubbleLeftIcon className="h-6 w-6 text-white" />,
-    bgColor: 'bg-blue-600'
-  },
-  {
-    id: 3,
-    type: 'forum',
-    title: 'Community Forum',
-    message: 'Attend the community forum on urban development at the Kilimani Community Hall on Friday.',
-    icon: <ChatBubbleLeftIcon className="h-6 w-6 text-white" />,
-    bgColor: 'bg-blue-600'
-  },
-  {
-    id: 3,
-    type: 'forum',
-    title: 'Community Forum',
-    message: 'Attend the community forum on urban development at the Kilimani Community Hall on Friday.',
-    icon: <ChatBubbleLeftIcon className="h-6 w-6 text-white" />,
-    bgColor: 'bg-blue-600'
+    bgColor: 'bg-green-600'
   }
 ];
 
@@ -67,12 +67,12 @@ const Notify = () => {
       {notifications.map(notification => (
         <div
           key={notification.id}
-          className={`flex items-center p-4 rounded-lg shadow-lg ${notification.bgColor} text-white`}
+          className={`flex items-center mb-2 mt-4 p-4 rounded-lg shadow-lg ${notification.bgColor} text-white`}
         >
           <div className="flex-shrink-0">
             {notification.icon}
           </div>
-          <div className="ml-4">
+          <div className="ml-4 mt-4">
             <h3 className="text-lg font-semibold">{notification.title}</h3>
             <p className="mt-1 text-sm">{notification.message}</p>
           </div>

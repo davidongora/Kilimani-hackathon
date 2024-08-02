@@ -22,7 +22,7 @@ export default function CardTable({ color }) {
                   (color === "light" ? "text-blueGray-700" : "text-white")
                 }
               >
-                Card Tables
+                Development and Public Participation Projects
               </h3>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function CardTable({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  Users
+                  Participants
                 </th>
                 <th
                   className={
@@ -115,18 +115,16 @@ export default function CardTable({ color }) {
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <i
-                      className={`fas fa-circle text-${
-                        project.statusColor
-                      } mr-2`}
+                      className={`fas fa-circle text-${project.statusColor} mr-2`}
                     ></i>{" "}
                     {project.status}
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <div className="flex">
-                      {project.users.map((user, userIndex) => (
+                      {project.participants.map((participant, participantIndex) => (
                         <img
-                          key={userIndex}
-                          src={user.img}
+                          key={participantIndex}
+                          src={participant.img}
                           alt="..."
                           className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                         />
@@ -169,12 +167,12 @@ CardTable.propTypes = {
 
 const projectData = [
   {
-    img: require("assets/img/bootstrap.jpg").default,
-    name: "Argon Design System",
-    budget: "$2,500 USD",
+    img: require("assets/img/team-4-470x470.png").default,
+    name: "New Housing Project",
+    budget: "$2,500,000",
     status: "pending",
     statusColor: "orange-500",
-    users: [
+    participants: [
       { img: require("assets/img/team-1-800x800.jpg").default },
       { img: require("assets/img/team-2-800x800.jpg").default },
       { img: require("assets/img/team-3-800x800.jpg").default },
@@ -183,12 +181,12 @@ const projectData = [
     completion: 60,
   },
   {
-    img: require("assets/img/angular.jpg").default,
-    name: "Angular Now UI Kit PRO",
-    budget: "$1,800 USD",
+    img: require("assets/img/team-4-470x470.png").default,
+    name: "Community Center",
+    budget: "$1,200,000",
     status: "completed",
     statusColor: "emerald-500",
-    users: [
+    participants: [
       { img: require("assets/img/team-1-800x800.jpg").default },
       { img: require("assets/img/team-2-800x800.jpg").default },
       { img: require("assets/img/team-3-800x800.jpg").default },
@@ -197,26 +195,26 @@ const projectData = [
     completion: 100,
   },
   {
-    img: require("assets/img/sketch.jpg").default,
-    name: "Black Dashboard Sketch",
-    budget: "$3,150 USD",
+    img: require("assets/img/team-4-470x470.png").default,
+    name: "Road Repair Initiative",
+    budget: "$800,000",
     status: "delayed",
     statusColor: "red-500",
-    users: [
+    participants: [
       { img: require("assets/img/team-1-800x800.jpg").default },
       { img: require("assets/img/team-2-800x800.jpg").default },
       { img: require("assets/img/team-3-800x800.jpg").default },
       { img: require("assets/img/team-4-470x470.png").default },
     ],
-    completion: 73,
+    completion: 50,
   },
   {
-    img: require("assets/img/react.jpg").default,
-    name: "React Material Dashboard",
-    budget: "$4,400 USD",
+    img: require("assets/img/team-4-470x470.png").default,
+    name: "Community Event",
+    budget: "$10,000",
     status: "on schedule",
     statusColor: "teal-500",
-    users: [
+    participants: [
       { img: require("assets/img/team-1-800x800.jpg").default },
       { img: require("assets/img/team-2-800x800.jpg").default },
       { img: require("assets/img/team-3-800x800.jpg").default },
@@ -225,3 +223,4 @@ const projectData = [
     completion: 90,
   },
 ];
+
