@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -67,7 +68,7 @@ ROOT_URLCONF = "Killimani.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -202,4 +203,6 @@ EMAIL_USE_TLS = False
 # EMAIL_USE_SSL=False
 DEFAULT_FROM_EMAIL = os.environ.get("SITE_EMAIL", "noreply@yourdomain.com")
 SITE_EMAIL = os.environ.get("SITE_EMAIL", "noreply@yourdomain.com")
-EMAIL_SUBJECT = "Show Ticketing"
+EMAIL_SUBJECT = "KILIMANI BARAZA"
+
+CORS_ALLOW_ALL_ORIGINS = True

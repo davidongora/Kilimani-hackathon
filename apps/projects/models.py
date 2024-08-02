@@ -19,7 +19,7 @@ class Project(AbstractBasseModel):
 
 class ProjectDiscussion(AbstractBasseModel):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="projectcomments")
-    commentor = models.ForeignKey("users.User", on_delete=models.SET_NULL, null=True, related_name="usercomments")
+    commentor = models.CharField(max_length=255, null=True)
     content = models.TextField(null=True)
     parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
     likes = models.IntegerField(default=0)

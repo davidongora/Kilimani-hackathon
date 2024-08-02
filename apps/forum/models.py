@@ -7,6 +7,7 @@ class Post(AbstractBasseModel):
     image = models.ImageField(upload_to="posts_images/", null=True)
     file = models.FileField(upload_to="post_files/", null=True)
     published = models.BooleanField(default=True)
+    meeting_link = models.URLField(null=True)
 
     def __str__(self):
         return self.title
@@ -25,11 +26,13 @@ class PostComment(AbstractBasseModel):
 
 class Poll(AbstractBasseModel):
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
+    required_votes = models.IntegerField(default=200)
 
     def __str__(self):
         return self.question_text
+    
 
 class PollChoice(AbstractBasseModel):
     question = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name='choices')
@@ -38,3 +41,40 @@ class PollChoice(AbstractBasseModel):
 
     def __str__(self):
         return self.choice_text
+    
+class Survey(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+class Question(models.Model):
+    survey = models.ForeignKey(Survey, related_name='questions', on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)
+    QUESTION_TYPES = [
+        ('text', 'Text'),
+        ('multiple_choice', 'Multiple Choice'),
+    ]
+    question_type = models.CharField(max_length=50, choices=QUESTION_TYPES)
+
+    def __str__(self):
+        return self.text
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, related_name='choices', on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.text
+
+class Response(models.Model):
+    survey = models.ForeignKey(Survey, related_name='responses', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class Answer(models.Model):
+    response = models.ForeignKey(Response, related_name='answers', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    text_answer = models.TextField(null=True, blank=True)
+    choice_answer = models.ForeignKey(Choice, null=True, blank=True, on_delete=models.CASCADE)

@@ -1,0 +1,33 @@
+{% extends "test_base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        <form class="form-inline" method="POST">
+            {% csrf_token %}
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control" name="search_text" id="search_text" placeholder="Search Post">
+            </div>
+            <input type="submit" hidden />
+        </form>
+    </div>
+    <div class="col">
+        <a href="#" class="btn btn-primary">New Post</a>
+    </div>
+</div>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">by {{post.author}} on {{post.created.date}}</h6>
+                        <p class="card-text">{{post.content|truncatechars:50}}</p>
+                        <a href="#" class="card-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>
+
+{% endblock content %}
